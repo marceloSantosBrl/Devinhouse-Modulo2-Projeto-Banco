@@ -1,26 +1,30 @@
 namespace ConsoleApp1;
 
-public sealed class IndividualClient: Client
+public sealed class IndividualClient : Client
 {
     public override int Number { get; set; }
     public override decimal Balance { get; set; }
     public override string Address { get; set; }
+    public string Name { get; set; }
     public string Cpf { get; set; }
     public DateTime BirthDay { get; set; }
+
     public override void GetSummary()
     {
-        Console.WriteLine(Number);
-        Console.WriteLine(Balance);
-        Console.WriteLine(Address);
-        Console.WriteLine(BirthDay);
+        Console.WriteLine("Nome: " + Name);
+        Console.WriteLine("Numero da conta: " + Number);
+        Console.WriteLine("Balanço: " + Balance);
+        Console.WriteLine("Endereço: " + Address);
+        Console.WriteLine("Data de nascimento: " + BirthDay);
     }
 
-    public IndividualClient(int number,string address, DateTime birthDay, string cpf)
+    public IndividualClient(int number, string address, DateTime birthDay, string cpf, string name)
     {
         Number = number;
         Address = address;
         BirthDay = birthDay;
         Cpf = cpf;
+        Name = name;
     }
 
     public static bool IsLegalAge(DateTime birthday)
@@ -30,6 +34,7 @@ public sealed class IndividualClient: Client
             throw new ArgumentOutOfRangeException(nameof(birthday), $"Data de nascimento{birthday} é maior " +
                                                                     $"que a data de hoje");
         }
+
         return (birthday.AddYears(18) <= DateTime.Now);
     }
 }
