@@ -4,8 +4,10 @@ public class ClientService: IClientService
 {
     public static List<Client> Clients { get; set; } = new();
 
-    public Client FindClient(int number)
+    public Client FindClient()
     {
+        Console.WriteLine("Digite o número da conta para busca");
+        int.TryParse(Console.ReadLine(), out var number);
         return Clients.Find(p => p.Number == number) ??
                throw new ArgumentException("Valor não encontrado");
     }
