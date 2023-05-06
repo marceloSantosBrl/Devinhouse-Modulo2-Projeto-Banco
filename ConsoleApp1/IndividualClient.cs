@@ -15,8 +15,9 @@ public sealed class IndividualClient: Client
         Console.WriteLine(BirthDay);
     }
 
-    public IndividualClient(string address, DateTime birthDay, string cpf)
+    public IndividualClient(int number,string address, DateTime birthDay, string cpf)
     {
+        Number = number;
         Address = address;
         BirthDay = birthDay;
         Cpf = cpf;
