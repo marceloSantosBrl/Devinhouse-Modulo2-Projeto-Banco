@@ -27,7 +27,10 @@ public class ClientService
     {
         Console.WriteLine("Digite o número da conta");
         int.TryParse(Console.ReadLine(), out var number);
+        Console.WriteLine("Digite o nome do negócio");
         Console.WriteLine("Digite o Endereço");
+        var businessName = Console.ReadLine() ?? 
+                      throw new ArgumentException("Argumento inválido");
         var address = Console.ReadLine() ?? 
                       throw new ArgumentException("Argumento inválido");
         Console.WriteLine("Digite CNPJ do Negócio");
@@ -55,7 +58,7 @@ public class ClientService
                                                                $"que 31");
         }
         var creationDateTime = new DateTime(year, month, day);
-        return new BusinessClient(number: number,
+        return new BusinessClient(number: number, businessName: businessName,
             address: address, creationDate: creationDateTime, cnpj: cnpj);
     }
 

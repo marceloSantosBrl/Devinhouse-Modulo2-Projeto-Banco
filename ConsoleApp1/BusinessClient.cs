@@ -3,6 +3,7 @@ namespace ConsoleApp1;
 public sealed class BusinessClient: Client
 {
     public override int Number { get; set; }
+    public string BusinessName { get; set; }
     public override decimal Balance { get; set; }
     public override string Address { get; set; }
     public string Cnpj { get; set; }
@@ -15,11 +16,12 @@ public sealed class BusinessClient: Client
         Console.WriteLine(BusinessCreationDate);
     }
     
-    public BusinessClient(int number, string address, DateTime creationDate, string cnpj)
+    public BusinessClient(int number, string address, DateTime creationDate, string cnpj, string businessName)
     {
         Number = number;
         Address = address;
         BusinessCreationDate = creationDate;
         Cnpj = cnpj;
+        BusinessName = businessName;
     }
 }
