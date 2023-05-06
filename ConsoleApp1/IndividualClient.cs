@@ -11,11 +11,13 @@ public sealed class IndividualClient : Client
 
     public override void GetSummary()
     {
+        Console.WriteLine("#####");
         Console.WriteLine("Nome: " + Name);
         Console.WriteLine("Numero da conta: " + Number);
         Console.WriteLine("Balanço: " + Balance);
         Console.WriteLine("Endereço: " + Address);
         Console.WriteLine("Data de nascimento: " + BirthDay);
+        Console.WriteLine("#####");
     }
 
     public IndividualClient(int number, string address, DateTime birthDay, string cpf, string name)

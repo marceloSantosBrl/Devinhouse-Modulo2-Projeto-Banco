@@ -13,12 +13,14 @@ public sealed class BusinessClient: Client
 
     public override void GetSummary()
     {
+        Console.WriteLine("#####");
         Console.WriteLine("Cnpj: " + Cnpj);
         Console.WriteLine("Razão social: " + BusinessName);
         Console.WriteLine("Numero da conta: " +  Number);
         Console.WriteLine("Balanço:" + Balance);
         Console.WriteLine("Endereço " + Address);
         Console.WriteLine("Data de criação do negócio" + BusinessCreationDate);
+        Console.WriteLine("#####");
     }
 
     public BusinessClient(int number, string address, DateTime creationDate, string cnpj, string businessName)

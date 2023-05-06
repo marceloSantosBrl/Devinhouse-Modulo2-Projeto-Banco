@@ -1,10 +1,24 @@
 namespace ConsoleApp1.Services;
 
-public class ClientService
+public class ClientService: IClientService
 {
     public static List<Client> Clients { get; set; } = new();
 
-    public static void AddClient()
+    public Client FindClient(int number)
+    {
+        return Clients.Find(p => p.Number == number) ??
+               throw new ArgumentException("Valor não encontrado");
+    }
+
+    public void ShowClients()
+    {
+        foreach (var c in Clients)
+        {
+            c.GetSummary();
+        }
+    }
+    
+    public void AddClient()
     {
         Console.WriteLine("Qual tipo de conta deseja criar?\n" +
                           "1 - Conta PF\n" +
